@@ -1,65 +1,116 @@
-import { Mail, Phone, MapPin, Globe, Heart } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Heart, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
 
 const LOGO_URL = "/manus-storage/pntd-logo_9f2d93ad.png";
 
+// Grid pattern with plus signs (same as Hero)
+function GridPattern() {
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full opacity-[0.05]"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <pattern id="footer-grid-plus" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M20 15v10M15 20h10" stroke="currentColor" strokeWidth="1" fill="none" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#footer-grid-plus)" className="text-[#c5a059]" />
+    </svg>
+  );
+}
+
+// Royal Emblem SVG (Crescent and Star)
+function RoyalEmblem() {
+  return (
+    <div className="relative w-16 h-16 flex items-center justify-center">
+      <div className="absolute inset-0 rounded-full border border-[#c5a059] opacity-20 animate-pulse" />
+      <div className="absolute inset-1 rounded-full border border-[#c5a059] opacity-30" />
+      <svg viewBox="0 0 100 100" className="w-8 h-8 fill-[#c5a059]">
+        <path d="M50 20 C33.4 20 20 33.4 20 50 C20 66.6 33.4 80 50 80 C40 80 32 72 32 50 C32 28 40 20 50 20 Z" />
+        <path d="M60 45 L64 54 L73 54 L66 60 L68 69 L60 63 L52 69 L54 60 L47 54 L56 54 Z" />
+      </svg>
+    </div>
+  );
+}
+
 export default function Footer() {
+  const { t, dir } = useLanguage();
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  return (
-    <footer className="relative overflow-hidden border-t border-[oklch(0.38_0.14_152/0.2)]">
-      <div className="absolute inset-0 bg-[oklch(0.05_0.02_240)]" />
-      <div className="absolute inset-0 opacity-5">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="footer-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-              <polygon points="30,0 60,15 60,45 30,60 0,45 0,15" fill="none" stroke="oklch(0.75 0.15 75)" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#footer-pattern)" />
-        </svg>
-      </div>
+  const socialLinks = [
+    { icon: Facebook, href: "#" },
+    { icon: Twitter, href: "#" },
+    { icon: Instagram, href: "#" },
+    { icon: Linkedin, href: "#" },
+  ];
 
-      <div className="relative z-10 container py-16">
-        <div className="grid md:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <img src={LOGO_URL} alt="PNTD" className="w-12 h-12 rounded-full border border-[oklch(0.38_0.14_152/0.4)]" />
-              <div>
-                <div className="text-xl font-black gradient-text-moroccan">PNTD</div>
-                <div className="text-xs text-[oklch(0.60_0.03_240)] tracking-wider">Programme National de Transformation Digitale</div>
+  return (
+    <footer className="relative bg-[#062016] text-white overflow-hidden border-t border-[#c5a059]/20">
+      <GridPattern />
+      
+      {/* Decorative gradient */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c5a059]/50 to-transparent" />
+
+      <div className="relative z-10 container mx-auto px-6 pt-20 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+          {/* Brand Section */}
+          <div className={`flex flex-col gap-6 ${dir === 'rtl' ? 'items-end text-right' : 'items-start text-left'}`}>
+            <div className="flex items-center gap-4">
+              <div className="relative group">
+                <div className="absolute inset-0 rounded-full bg-[#c5a059]/20 blur-md group-hover:blur-lg transition-all" />
+                <img 
+                  src={LOGO_URL} 
+                  alt="PNTD" 
+                  className="relative w-14 h-14 rounded-full border border-[#c5a059]/40 object-contain p-1" 
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold tracking-tighter text-white">PNTD</span>
+                <span className="text-[10px] tracking-[0.2em] text-[#c5a059] font-bold uppercase">MOROCCO</span>
               </div>
             </div>
-            <p className="text-[oklch(0.60_0.03_240)] text-sm leading-relaxed mb-4 max-w-xs">
-              Enrichi par l'Intelligence Artificielle, le PNTD propulse le Maroc vers un avenir numérique prometteur aligné avec la Vision 2030.
+            
+            <p className="text-white/50 text-sm leading-relaxed max-w-xs font-serif italic">
+              {t("footer.desc")}
             </p>
-            <div
-              className="text-lg font-bold text-arabic"
-              style={{ fontFamily: "'Noto Sans Arabic', 'Cairo', sans-serif", direction: "rtl", color: "oklch(0.75 0.15 75)" }}
-            >
-              نحو مستقبل رقمي واعد
+
+            <div className="flex gap-4">
+              {socialLinks.map((social, i) => (
+                <a 
+                  key={i} 
+                  href={social.href}
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[#c5a059] hover:border-[#c5a059]/40 transition-all hover:-translate-y-1"
+                >
+                  <social.icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="text-sm font-bold text-[oklch(0.85_0.02_240)] mb-4 uppercase tracking-widest">Navigation</h4>
-            <ul className="space-y-2">
+          {/* Navigation Section */}
+          <div className={`flex flex-col gap-8 ${dir === 'rtl' ? 'items-end text-right' : 'items-start text-left'}`}>
+            <h4 className="text-[#c5a059] text-xs tracking-[0.3em] font-bold uppercase">
+              {t("footer.nav_title")}
+            </h4>
+            <ul className="flex flex-col gap-4">
               {[
-                { label: "Accueil", id: "hero" },
-                { label: "À propos", id: "about" },
-                { label: "Régions", id: "regions" },
-                { label: "Avantages", id: "advantages" },
-                { label: "Partenaires", id: "partners" },
-                { label: "Rejoindre", id: "join" },
+                { label: t("nav.home"), id: "hero" },
+                { label: t("nav.about"), id: "about" },
+                { label: t("nav.regions"), id: "regions" },
+                { label: t("nav.vision"), id: "vision" },
+                { label: t("nav.join"), id: "join" },
               ].map((item) => (
                 <li key={item.id}>
                   <button
                     onClick={() => scrollTo(item.id)}
-                    className="text-sm text-[oklch(0.60_0.03_240)] hover:text-[oklch(0.75_0.15_75)] transition-colors duration-200"
+                    className="text-sm text-white/40 hover:text-white transition-colors flex items-center gap-2 group"
                   >
+                    <span className={`w-1 h-1 rounded-full bg-[#c5a059] opacity-0 group-hover:opacity-100 transition-opacity ${dir === 'rtl' ? 'order-last' : ''}`} />
                     {item.label}
                   </button>
                 </li>
@@ -67,37 +118,65 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-bold text-[oklch(0.85_0.02_240)] mb-4 uppercase tracking-widest">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-[oklch(0.60_0.03_240)]">
-                <Mail size={14} className="text-[oklch(0.38_0.14_152)] flex-shrink-0" />
-                contact@pntd.ma
-              </li>
-              <li className="flex items-center gap-2 text-sm text-[oklch(0.60_0.03_240)]">
-                <Phone size={14} className="text-[oklch(0.38_0.14_152)] flex-shrink-0" />
-                +212 5XX XXX XXX
-              </li>
-              <li className="flex items-center gap-2 text-sm text-[oklch(0.60_0.03_240)]">
-                <MapPin size={14} className="text-[oklch(0.38_0.14_152)] flex-shrink-0" />
-                Rabat, Maroc
-              </li>
-              <li className="flex items-center gap-2 text-sm text-[oklch(0.60_0.03_240)]">
-                <Globe size={14} className="text-[oklch(0.38_0.14_152)] flex-shrink-0" />
-                www.pntd.ma
-              </li>
+          {/* Contact Section */}
+          <div className={`flex flex-col gap-8 ${dir === 'rtl' ? 'items-end text-right' : 'items-start text-left'}`}>
+            <h4 className="text-[#c5a059] text-xs tracking-[0.3em] font-bold uppercase">
+              {t("footer.contact_title")}
+            </h4>
+            <ul className="flex flex-col gap-6">
+              {[
+                { icon: Mail, text: "contact@pntd.ma" },
+                { icon: Phone, text: "+212 5XX XXX XXX" },
+                { icon: MapPin, text: "Rabat, Maroc" },
+                { icon: Globe, text: "www.pntd.ma" },
+              ].map((item, i) => (
+                <li key={i} className={`flex items-center gap-4 text-sm text-white/40 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c5a059]">
+                    <item.icon size={16} />
+                  </div>
+                  {item.text}
+                </li>
+              ))}
             </ul>
+          </div>
+
+          {/* Newsletter/Royal Section */}
+          <div className={`flex flex-col gap-8 ${dir === 'rtl' ? 'items-end text-right' : 'items-start text-left'}`}>
+            <h4 className="text-[#c5a059] text-xs tracking-[0.3em] font-bold uppercase">
+              {t("hero.badge")}
+            </h4>
+            <div className="p-8 bg-[#0a2f1f] border border-[#c5a059]/30 rounded-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#c5a059]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-[#c5a059]/10 transition-colors" />
+              
+              <div className="flex flex-col items-center gap-6 text-center">
+                <RoyalEmblem />
+                <p className="text-sm text-white/80 leading-relaxed relative z-10 italic font-serif">
+                  {t("hero.quote")}
+                </p>
+                <div className="pt-4 border-t border-[#c5a059]/20 w-full relative z-10">
+                  <span className="text-[10px] text-[#c5a059] font-bold tracking-[0.2em] uppercase">
+                    {t("hero.royal.title")}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-[oklch(0.38_0.14_152/0.15)] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[oklch(0.45_0.03_240)]">
-            © 2024 PNTD — Programme National de Transformation Digitale. Tous droits réservés.
+        {/* Bottom Bar */}
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-[10px] tracking-[0.1em] text-white/30 uppercase font-medium text-center md:text-left">
+            © 2024 PNTD — {t("footer.program")}. {t("footer.rights")}.
           </p>
-          <div className="flex items-center gap-1 text-xs text-[oklch(0.45_0.03_240)]">
-            Fait avec <Heart size={12} className="text-[oklch(0.45_0.22_25)] mx-1" /> pour le Maroc Digital
+          <div className="flex items-center gap-2 text-[10px] tracking-[0.1em] text-white/30 uppercase font-bold">
+            {t("footer.made_with")} 
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <Heart size={12} className="text-[#c5a059] fill-[#c5a059]" />
+            </motion.div>
+            {t("footer.for_morocco")}
           </div>
         </div>
       </div>
