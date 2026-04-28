@@ -1,7 +1,7 @@
 import { useParams, useLocation } from "wouter";
 import { ArrowLeft, Mail, Phone, MapPin, User, Users, Loader2, AlertCircle } from "lucide-react";
 
-const LOGO_URL = "/manus-storage/pntd-logo_9f2d93ad.png";
+const LOGO_URL = "/pntd.png";
 
 function AvatarPlaceholder({ name }: { name: string }) {
   const initials = name.split(" ").map((n) => n[0]).slice(0, 2).join("").toUpperCase();

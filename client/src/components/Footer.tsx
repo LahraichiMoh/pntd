@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin, Globe, Heart, Facebook, Twitter, Instagram, Linked
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 
-const LOGO_URL = "/manus-storage/pntd-logo_9f2d93ad.png";
+const LOGO_URL = "/pntd.png";
 
 // Grid pattern with plus signs (same as Hero)
 function GridPattern() {

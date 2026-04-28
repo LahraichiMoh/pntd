@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 
-const LOGO_URL = "/manus-storage/pntd-logo_9f2d93ad.png";
+const LOGO_URL = "/pntd.png";
 
 const LANGUAGES: { code: Language; label: string; flag: string }[] = [
   { code: "fr", label: "FR", flag: "🇫🇷" },
@@ -79,25 +79,15 @@ export default function Navbar() {
             <div className="relative">
               <div
                 className="absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-300"
-                style={{ background: "oklch(0.35 0.14 152 / 0.4)" }}
+                
               />
               <img
                 src={LOGO_URL}
                 alt="PNTD Logo"
-                className="relative h-11 w-11 object-contain rounded-xl transition-transform duration-300 group-hover:scale-110"
+                className="relative h-40 w-40 object-contain transition-transform"
               />
             </div>
-            <div className="hidden sm:block">
-              <div className="text-xl font-black tracking-wider gradient-text-moroccan">
-                PNTD
-              </div>
-              <div
-                className="text-[10px] font-semibold tracking-widest uppercase"
-                style={{ color: "oklch(0.55 0.04 240)" }}
-              >
-                Transformation Digitale
-              </div>
-            </div>
+            
           </Link>
 
           {/* Desktop Nav */}
