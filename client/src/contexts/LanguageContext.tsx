@@ -21,7 +21,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.vision": "Vision 2030",
 
     // Hero
-    "hero.badge": "INITIATIVE NATIONALE 2024-2030",
+    "hero.badge": "INITIATIVE NATIONALE 2026-2030",
     "hero.subtitle": "ROYAUME DU MAROC · SOCIÉTÉ CIVILE",
     "hero.title_part1": "Pour un Maroc",
     "hero.title_part2": "Solidaire & Prospère",
@@ -138,7 +138,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.join": "انضم إلينا",
     "nav.vision": "رؤية 2030",
 
-    "hero.badge": "المبادرة الوطنية 2024-2030",
+    "hero.badge": "المبادرة الوطنية 2026-2030",
     "hero.subtitle": "المملكة المغربية · المجتمع المدني",
     "hero.title_part1": "من أجل مغرب",
     "hero.title_part2": "متضامن ومزدهر",
@@ -246,7 +246,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.join": "Join",
     "nav.vision": "Vision 2030",
 
-    "hero.badge": "NATIONAL INITIATIVE 2024-2030",
+    "hero.badge": "NATIONAL INITIATIVE 2026-2030",
     "hero.subtitle": "KINGDOM OF MOROCCO · CIVIL SOCIETY",
     "hero.title_part1": "For a United",
     "hero.title_part2": "& Prosperous Morocco",

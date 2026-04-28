@@ -62,17 +62,14 @@ export default function Footer() {
           <div className={`flex flex-col gap-6 ${dir === 'rtl' ? 'items-end text-right' : 'items-start text-left'}`}>
             <div className="flex items-center gap-4">
               <div className="relative group">
-                <div className="absolute inset-0 rounded-full bg-[#c5a059]/20 blur-md group-hover:blur-lg transition-all" />
+                <div className="absolute inset-0  blur-md group-hover:blur-lg transition-all" />
                 <img 
                   src={LOGO_URL} 
                   alt="PNTD" 
-                  className="relative w-14 h-14 rounded-full border border-[#c5a059]/40 object-contain p-1" 
+                  className="relative w-30 h-30  object-contain p-1" 
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold tracking-tighter text-white">PNTD</span>
-                <span className="text-[10px] tracking-[0.2em] text-[#c5a059] font-bold uppercase">MOROCCO</span>
-              </div>
+              
             </div>
             
             <p className="text-white/50 text-sm leading-relaxed max-w-xs font-serif italic">
