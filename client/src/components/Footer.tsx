@@ -163,7 +163,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-[10px] tracking-[0.1em] text-white/30 uppercase font-medium text-center md:text-left">
-            © 2024 PNTD — {t("footer.program")}. {t("footer.rights")}.
+            © 2026 PNTD — {t("footer.program")}. {t("footer.rights")}.
           </p>
           <div className="flex items-center gap-2 text-[10px] tracking-[0.1em] text-white/30 uppercase font-bold">
             {t("footer.made_with")} 
