@@ -119,6 +119,8 @@ const translations: Record<Language, Record<string, string>> = {
     "region.contact": "Contacter",
     "region.back": "Retour à la carte",
     "region.no_rep": "Aucun représentant enregistré pour cette région.",
+    "region.capital": "Chef-lieu",
+    "region.search": "Rechercher une région...",
 
     // Footer
     "footer.rights": "Tous droits réservés",
@@ -228,6 +230,8 @@ const translations: Record<Language, Record<string, string>> = {
     "region.contact": "تواصل",
     "region.back": "العودة إلى الخريطة",
     "region.no_rep": "لا يوجد ممثلون مسجلون لهذه الجهة.",
+    "region.capital": "عاصمة الجهة",
+    "region.search": "البحث عن جهة...",
 
     "footer.rights": "جميع الحقوق محفوظة",
     "footer.program": "البرنامج الوطني للتحول الرقمي",
@@ -336,6 +340,8 @@ const translations: Record<Language, Record<string, string>> = {
     "region.contact": "Contact",
     "region.back": "Back to map",
     "region.no_rep": "No representatives registered for this region.",
+    "region.capital": "Capital",
+    "region.search": "Search a region...",
 
     "footer.rights": "All rights reserved",
     "footer.program": "National Digital Transformation Program",

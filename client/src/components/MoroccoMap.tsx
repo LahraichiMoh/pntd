@@ -59,7 +59,7 @@ export default function MoroccoMap() {
         <div className="text-center mb-14 reveal">
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4 text-sm font-semibold"
-            style={{ background: "oklch(0.35 0.14 152 / 0.1)", color: "oklch(0.35 0.14 152)", border: "1px solid oklch(0.35 0.14 152 / 0.25)" }}
+            style={{ background: "oklch(var(--moroccan-green) / 0.1)", color: "var(--primary)", border: "1px solid oklch(var(--moroccan-green) / 0.25)" }}
           >
             <MapPin size={14} />
             {t("map.regions_list")}
@@ -67,7 +67,7 @@ export default function MoroccoMap() {
           <h2 className="text-3xl sm:text-4xl font-black mb-3">
             <span className="gradient-text-moroccan">{t("map.title")}</span>
           </h2>
-          <p className="text-[oklch(0.50_0.04_240)] max-w-xl mx-auto text-base">
+          <p className="text-muted-foreground max-w-xl mx-auto text-base">
             {t("map.subtitle")}
           </p>
         </div>
@@ -80,19 +80,19 @@ export default function MoroccoMap() {
             <div className="relative group w-full max-w-lg">
               <div
                 className="absolute inset-0 rounded-3xl blur-3xl opacity-20 group-hover:opacity-35 transition-opacity duration-500"
-                style={{ background: "radial-gradient(ellipse, oklch(0.42 0.22 25) 0%, oklch(0.35 0.14 152 / 0.5) 60%, transparent 100%)" }}
+                style={{ background: "radial-gradient(ellipse, var(--moroccan-red) 0%, oklch(var(--moroccan-green) / 0.5) 60%, transparent 100%)" }}
               />
               <div
-                className="relative rounded-3xl overflow-hidden border-2 shadow-2xl bg-white"
+                className="relative rounded-3xl overflow-hidden border-2 shadow-2xl bg-card"
                 style={{
-                  borderColor: "oklch(0.35 0.14 152 / 0.25)",
-                  boxShadow: "0 30px 70px oklch(0.35 0.14 152 / 0.18)",
+                  borderColor: "oklch(var(--moroccan-green) / 0.25)",
+                  boxShadow: "0 30px 70px oklch(var(--moroccan-green) / 0.18)",
                 }}
               >
                 {/* Header bar */}
                 <div
                   className="px-5 py-3 flex items-center gap-3"
-                  style={{ background: "linear-gradient(135deg, oklch(0.35 0.14 152), oklch(0.42 0.22 25))" }}
+                  style={{ background: "linear-gradient(135deg, var(--moroccan-green), var(--moroccan-red))" }}
                 >
                   <span className="text-2xl">🇲🇦</span>
                   <div>
@@ -102,7 +102,7 @@ export default function MoroccoMap() {
                   <div className="ml-auto text-white/80 text-xs font-medium">12 Régions</div>
                 </div>
                 {/* Map image */}
-                <div className="p-4 bg-[oklch(0.97_0.01_240)]">
+                <div className="p-4 bg-muted/30">
                   <img
                     src={MOROCCO_MAP_URL}
                     alt="Carte du Maroc - 12 Régions"
@@ -113,12 +113,12 @@ export default function MoroccoMap() {
                 {/* Footer */}
                 <div
                   className="px-5 py-3 flex items-center justify-between"
-                  style={{ background: "oklch(0.97 0.01 240)", borderTop: "1px solid oklch(0.88 0.02 240)" }}
+                  style={{ background: "var(--muted)", borderTop: "1px solid var(--border)" }}
                 >
-                  <span className="text-xs text-[oklch(0.50_0.04_240)]">Programme National de Transformation Digitale</span>
+                  <span className="text-xs text-muted-foreground">Programme National de Transformation Digitale</span>
                   <span
                     className="text-xs font-bold px-2 py-1 rounded-full"
-                    style={{ background: "oklch(0.35 0.14 152 / 0.1)", color: "oklch(0.35 0.14 152)" }}
+                    style={{ background: "oklch(var(--moroccan-green) / 0.1)", color: "var(--primary)" }}
                   >PNTD</span>
                 </div>
               </div>
@@ -128,8 +128,8 @@ export default function MoroccoMap() {
           {/* RIGHT: Regions List */}
           <div className="reveal" style={{ animationDelay: "0.15s" }}>
             <div className="mb-4 flex items-center gap-2">
-              <Users size={16} style={{ color: "oklch(0.35 0.14 152)" }} />
-              <h3 className="font-bold text-[oklch(0.15_0.04_240)] text-lg">{t("map.click_hint")}</h3>
+              <Users size={16} style={{ color: "var(--primary)" }} />
+              <h3 className="font-bold text-foreground text-lg">{t("map.click_hint")}</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {regions.map((region, i) => (
@@ -138,33 +138,33 @@ export default function MoroccoMap() {
                   onClick={() => handleRegionClick(region.slug)}
                   onMouseEnter={() => setHoveredRegion(region.id)}
                   onMouseLeave={() => setHoveredRegion(null)}
-                  className="group flex items-center gap-3 p-3.5 rounded-2xl text-left transition-all duration-300 border bg-white"
+                  className="group flex items-center gap-3 p-3.5 rounded-2xl text-left transition-all duration-300 border bg-card"
                   style={{
                     animationDelay: `${i * 0.04}s`,
-                    borderColor: hoveredRegion === region.id ? "oklch(0.35 0.14 152 / 0.6)" : "oklch(0.88 0.02 240)",
+                    borderColor: hoveredRegion === region.id ? "oklch(var(--moroccan-green) / 0.6)" : "var(--border)",
                     background: hoveredRegion === region.id
-                      ? "linear-gradient(135deg, oklch(0.35 0.14 152 / 0.07), oklch(0.42 0.22 25 / 0.04))"
-                      : "white",
+                      ? "linear-gradient(135deg, oklch(var(--moroccan-green) / 0.07), oklch(var(--moroccan-red) / 0.04))"
+                      : "var(--card)",
                     transform: hoveredRegion === region.id ? "translateX(4px)" : "translateX(0)",
                     boxShadow: hoveredRegion === region.id
-                      ? "0 6px 20px oklch(0.35 0.14 152 / 0.15)"
-                      : "0 1px 4px oklch(0.15 0.04 240 / 0.06)",
+                      ? "0 6px 20px oklch(var(--moroccan-green) / 0.15)"
+                      : "0 1px 4px oklch(var(--foreground) / 0.06)",
                   }}
                 >
                   <div
                     className="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: "linear-gradient(135deg, oklch(0.35 0.14 152), oklch(0.42 0.22 25))" }}
+                    style={{ background: "linear-gradient(135deg, var(--moroccan-green), var(--moroccan-red))" }}
                   >
                     {i + 1}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div
                       className="font-bold text-sm truncate transition-colors duration-300"
-                      style={{ color: hoveredRegion === region.id ? "oklch(0.35 0.14 152)" : "oklch(0.15 0.04 240)" }}
+                      style={{ color: hoveredRegion === region.id ? "var(--primary)" : "var(--foreground)" }}
                     >
                       {getRegionName(region)}
                     </div>
-                    <div className="text-xs text-[oklch(0.55_0.04_240)] flex items-center gap-1 mt-0.5">
+                    <div className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
                       <MapPin size={9} />
                       {region.capital}
                     </div>
@@ -173,15 +173,15 @@ export default function MoroccoMap() {
                     size={15}
                     className="flex-shrink-0 transition-all duration-300"
                     style={{
-                      color: hoveredRegion === region.id ? "oklch(0.35 0.14 152)" : "oklch(0.75 0.02 240)",
+                      color: hoveredRegion === region.id ? "var(--primary)" : "var(--muted-foreground)",
                       transform: hoveredRegion === region.id ? "translateX(3px)" : "translateX(0)",
                     }}
                   />
                 </button>
               ))}
             </div>
-            <p className="mt-5 text-xs text-[oklch(0.55_0.04_240)] flex items-center gap-1.5">
-              <ChevronRight size={12} style={{ color: "oklch(0.35 0.14 152)" }} />
+            <p className="mt-5 text-xs text-muted-foreground flex items-center gap-1.5">
+              <ChevronRight size={12} style={{ color: "var(--primary)" }} />
               {t("region.representatives")}
             </p>
           </div>

@@ -25,25 +25,23 @@ export default function Navbar() {
 
   const navLinks = [
     { key: "nav.home", href: "/" },
-    { key: "nav.services", href: "/#services" },
-    { key: "nav.regions", href: "/#regions" },
-    { key: "nav.about", href: "/#about" },
+    { key: "nav.services", href: "/services" },
+    { key: "nav.regions", href: "/regions" },
+    { key: "nav.about", href: "/about" },
     { key: "nav.vision", href: "/vision" },
     { key: "nav.partners", href: "/#partners" },
-    { key: "nav.join", href: "/#join", highlight: true },
+    { key: "nav.join", href: "/join", highlight: true },
   ];
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
-    if (href === "/vision") {
-      navigate("/vision");
-      return;
-    }
+    
     if (href === "/") {
       navigate("/");
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
+
     if (href.startsWith("/#")) {
       if (location !== "/") {
         navigate("/");
@@ -57,7 +55,11 @@ export default function Navbar() {
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: "smooth" });
       }
+      return;
     }
+
+    // Handle full pages
+    navigate(href);
   };
 
   return (

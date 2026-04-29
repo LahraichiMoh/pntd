@@ -8,13 +8,21 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
 import RegionPage from "./pages/RegionPage";
 import VisionPage from "./pages/VisionPage";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import JoinPage from "./pages/JoinPage";
+import RegionsListPage from "./pages/RegionsListPage";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/regions" component={RegionsListPage} />
       <Route path="/region/:slug" component={RegionPage} />
       <Route path="/vision" component={VisionPage} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/services" component={ServicesPage} />
+      <Route path="/join" component={JoinPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
