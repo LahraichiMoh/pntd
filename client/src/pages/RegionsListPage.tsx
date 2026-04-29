@@ -111,7 +111,7 @@ export default function RegionsListPage() {
                   <div className="relative z-10">
                     <div 
                       className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 shadow-lg shadow-primary/10"
-                      style={{ background: "linear-gradient(135deg, var(--moroccan-green), var(--moroccan-red))" }}
+                      style={{ background: "linear-gradient(135deg, oklch(0.35 0.14 152), oklch(0.68 0.15 75), oklch(0.42 0.22 25))" }}
                     >
                       <MapPin size={28} className="text-white" />
                     </div>

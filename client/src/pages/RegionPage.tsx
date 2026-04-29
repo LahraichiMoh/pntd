@@ -247,8 +247,7 @@ export default function RegionPage() {
           <p className="text-muted-foreground mb-8">Cette région n'est pas encore enregistrée dans notre système.</p>
           <button
             onClick={() => navigate("/regions")}
-            className="w-full px-8 py-4 rounded-2xl font-black text-white transition-all duration-300 hover:scale-[1.02] shadow-xl shadow-primary/20"
-            style={{ background: "linear-gradient(135deg, var(--moroccan-green), var(--moroccan-red))" }}
+            className="w-full px-8 py-4 rounded-2xl font-black text-white btn-moroccan-gradient"
           >
             Retour à la liste
           </button>
@@ -451,8 +450,7 @@ export default function RegionPage() {
                 </p>
                 <button
                   onClick={() => navigate("/join")}
-                  className="px-12 py-5 rounded-2xl font-black text-lg text-white transition-all duration-300 hover:scale-[1.05] shadow-2xl shadow-primary/30"
-                  style={{ background: "linear-gradient(135deg, var(--moroccan-green), var(--moroccan-red))" }}
+                  className="px-12 py-5 rounded-2xl font-black text-lg text-white btn-moroccan-gradient"
                 >
                   {t("hero.cta_join")}
                 </button>

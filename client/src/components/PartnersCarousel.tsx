@@ -68,7 +68,7 @@ export default function PartnersCarousel() {
         </div>
 
         {/* International Partners */}
-        <div className="container mb-14 reveal" style={{ animationDelay: "0.1s" }}>
+        {/* <div className="container mb-14 reveal" style={{ animationDelay: "0.1s" }}>
           <div className="flex items-center gap-2 mb-6">
             <Star size={16} style={{ color: "oklch(0.68 0.15 75)" }} />
             <h3 className="font-bold text-[oklch(0.15_0.04_240)] text-lg">{t("partners.intl")}</h3>
@@ -83,13 +83,11 @@ export default function PartnersCarousel() {
                   boxShadow: `0 4px 20px ${partner.color}15`,
                 }}
               >
-                {/* Glow on hover */}
                 <div
                   className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
                   style={{ background: `radial-gradient(circle at 30% 50%, ${partner.color}08 0%, transparent 70%)` }}
                 />
 
-                {/* Flag */}
                 <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center text-4xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                   style={{ background: `${partner.color}10`, border: `2px solid ${partner.color}25` }}
@@ -97,7 +95,6 @@ export default function PartnersCarousel() {
                   {partner.flag}
                 </div>
 
-                {/* Info */}
                 <div className="relative z-10">
                   <div className="font-black text-[oklch(0.15_0.04_240)] text-base leading-tight mb-1">
                     {lang === "ar" ? partner.nameAr : partner.name}
@@ -112,14 +109,14 @@ export default function PartnersCarousel() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Companies Carousel */}
         <div className="reveal" style={{ animationDelay: "0.2s" }}>
-          <div className="container mb-6 flex items-center gap-2">
+          {/* <div className="container mb-6 flex items-center gap-2">
             <Building2 size={16} style={{ color: "oklch(0.35 0.14 152)" }} />
             <h3 className="font-bold text-[oklch(0.15_0.04_240)] text-lg">{t("partners.companies")}</h3>
-          </div>
+          </div> */}
 
           {/* Scrolling track */}
           <div className="relative overflow-hidden py-4">

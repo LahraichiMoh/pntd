@@ -297,11 +297,7 @@ export default function JoinSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-2xl font-bold text-white flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:scale-100"
-                style={{
-                  background: "linear-gradient(135deg, oklch(0.35 0.14 152), oklch(0.42 0.22 25))",
-                  boxShadow: "0 4px 20px oklch(0.35 0.14 152 / 0.35)",
-                }}
+                className="w-full py-4 rounded-2xl font-bold text-white flex items-center justify-center gap-3 btn-moroccan-gradient disabled:opacity-70 disabled:cursor-not-allowed disabled:scale-100"
               >
                 {isSubmitting ? (
                   <>

@@ -91,10 +91,16 @@ export default function HeroSection() {
           <div className="relative max-w-xl">
             <div className={`absolute top-0 bottom-0 w-[2px] bg-[#c5a059]/40 ${dir === 'rtl' ? '-right-4' : '-left-4'}`} />
             <div className={`${dir === 'rtl' ? 'pr-6 text-right' : 'pl-6 text-left'} flex flex-col gap-4`}>
-              <p className="text-lg text-white/70 italic leading-relaxed font-serif">
+              <p className="text-lg text-white/70 italic leading-relaxed font-serif whitespace-pre-line">
                 {t("hero.quote")}
               </p>
-              <span className="text-[#c5a059] text-xs tracking-widest font-bold uppercase">
+              <span
+                className={
+                  dir === "rtl"
+                    ? "text-[#c5a059] text-sm font-bold"
+                    : "text-[#c5a059] text-xs tracking-widest font-bold uppercase"
+                }
+              >
                 {t("hero.quote_author")}
               </span>
             </div>
@@ -102,7 +108,7 @@ export default function HeroSection() {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-6 mt-4">
-            <button className="group relative px-8 py-4 bg-[#c5a059] hover:bg-[#b08d4a] text-[#062016] font-bold text-xs tracking-widest uppercase transition-all flex items-center gap-3">
+            <button className="btn-moroccan-gradient px-8 py-4 font-bold text-xs tracking-widest uppercase flex items-center gap-3">
               {t("hero.cta_discover")}
               <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${dir === 'rtl' ? 'rotate-180' : ''}`} />
             </button>
@@ -145,6 +151,14 @@ export default function HeroSection() {
           <div className="absolute w-[400px] h-[550px] border border-[#c5a059]/10 translate-x-8 -translate-y-8" />
           
           <div className="relative w-[400px] h-[550px] bg-[#0a2f1f] border border-[#c5a059]/30 shadow-2xl flex flex-col items-center justify-center p-12 text-center gap-8 group overflow-hidden">
+            <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
+              <img
+                src="/pntd.png"
+                alt=""
+                aria-hidden="true"
+                className="w-full h-full object-contain scale-90"
+              />
+            </div>
             {/* Hover Shine Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
