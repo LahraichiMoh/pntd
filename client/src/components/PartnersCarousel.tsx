@@ -8,20 +8,17 @@ const internationalPartners = [
   { name: "République Populaire de Chine", nameAr: "جمهورية الصين الشعبية", flag: "🇨🇳", type: "Partenaire Technologique", color: "oklch(0.42 0.22 25)" },
 ];
 
-// Partner companies (fictional for demo)
+// Partner companies
 const partnerCompanies = [
-  { name: "TechMaroc Solutions", sector: "Intelligence Artificielle", logo: "🤖", color: "#1a5c38" },
-  { name: "Digital Hub Casablanca", sector: "Innovation Digitale", logo: "💡", color: "#c41e3a" },
-  { name: "InnovateMa", sector: "Startups & Scale-ups", logo: "🚀", color: "#b8860b" },
-  { name: "CloudMaghreb", sector: "Infrastructure Cloud", logo: "☁️", color: "#1a5c38" },
-  { name: "EduTech Maroc", sector: "EdTech & Formation", logo: "📚", color: "#c41e3a" },
-  { name: "FinTech Atlas", sector: "Finance Digitale", logo: "💳", color: "#b8860b" },
-  { name: "AgriDigital", sector: "Agriculture Connectée", logo: "🌾", color: "#1a5c38" },
-  { name: "HealthTech Rabat", sector: "Santé Numérique", logo: "🏥", color: "#c41e3a" },
-  { name: "SmartCity Marrakech", sector: "Villes Intelligentes", logo: "🏙️", color: "#b8860b" },
-  { name: "Cyber Secure MA", sector: "Cybersécurité", logo: "🔒", color: "#1a5c38" },
-  { name: "E-Commerce Atlas", sector: "Commerce Électronique", logo: "🛒", color: "#c41e3a" },
-  { name: "DataMorocco", sector: "Big Data & Analytics", logo: "📊", color: "#b8860b" },
+  { name: "OCP Group", sector: "Industrie & Engrais", logo: "/partners/mondialmedia.png", color: "#1a5c38" },
+  { name: "Royal Air Maroc", sector: "Transport Aérien", logo: "/partners/2.jpeg", color: "#c41e3a" },
+  { name: "Attijariwafa Bank", sector: "Secteur Bancaire", logo: "/partners/3.jpeg", color: "#b8860b" },
+  { name: "Maroc Telecom", sector: "Télécommunications", logo: "/partners/bitap.png", color: "#1a5c38" },
+  { name: "CDG Capital", sector: "Investissement", logo: "/partners/leaders.png", color: "#c41e3a" },
+  { name: "BCP", sector: "Banque & Finance", logo: "/partners/6.jpeg", color: "#b8860b" },
+  { name: "Inwi", sector: "Télécom & Digital", logo: "/partners/7.jpeg", color: "#1a5c38" },
+  { name: "Bank of Africa", sector: "Services Financiers", logo: "/partners/bsc.png", color: "#c41e3a" },
+  { name: "Managem", sector: "Mines & Industrie", logo: "/partners/9.jpeg", color: "#b8860b" },
 ];
 
 // Duplicate for seamless loop
@@ -134,22 +131,18 @@ export default function PartnersCarousel() {
               {allCompanies.map((company, i) => (
                 <div
                   key={`${company.name}-${i}`}
-                  className="flex-shrink-0 group flex items-center gap-3 px-5 py-4 rounded-2xl bg-white border transition-all duration-300 hover:scale-105 cursor-pointer"
+                  className="flex-shrink-0 group flex items-center justify-center p-6 rounded-2xl bg-white border transition-all duration-300 hover:scale-110 cursor-pointer"
                   style={{
-                    borderColor: `${company.color}25`,
-                    boxShadow: "0 2px 12px oklch(0.15 0.04 240 / 0.06)",
-                    minWidth: "220px",
+                    borderColor: `${company.color}20`,
+                    boxShadow: "0 4px 12px oklch(0.15 0.04 240 / 0.04)",
+                    width: "140px",
+                    height: "100px",
                   }}
                 >
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: `${company.color}15` }}
+                    className="w-full h-full rounded-xl flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105"
                   >
-                    {company.logo}
-                  </div>
-                  <div>
-                    <div className="font-bold text-sm text-[oklch(0.15_0.04_240)] whitespace-nowrap">{company.name}</div>
-                    <div className="text-xs text-[oklch(0.55_0.04_240)] whitespace-nowrap">{company.sector}</div>
+                    <img src={company.logo} alt={company.name} className="w-full h-full object-contain filter group-hover:grayscale-0 transition-all duration-500" />
                   </div>
                 </div>
               ))}
@@ -168,22 +161,18 @@ export default function PartnersCarousel() {
               {[...allCompanies].reverse().map((company, i) => (
                 <div
                   key={`rev-${company.name}-${i}`}
-                  className="flex-shrink-0 group flex items-center gap-3 px-5 py-4 rounded-2xl bg-white border transition-all duration-300 hover:scale-105 cursor-pointer"
+                  className="flex-shrink-0 group flex items-center justify-center p-6 rounded-2xl bg-white border transition-all duration-300 hover:scale-110 cursor-pointer"
                   style={{
-                    borderColor: `${company.color}25`,
-                    boxShadow: "0 2px 12px oklch(0.15 0.04 240 / 0.06)",
-                    minWidth: "220px",
+                    borderColor: `${company.color}20`,
+                    boxShadow: "0 4px 12px oklch(0.15 0.04 240 / 0.04)",
+                    width: "140px",
+                    height: "100px",
                   }}
                 >
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: `${company.color}15` }}
+                    className="w-full h-full rounded-xl flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105"
                   >
-                    {company.logo}
-                  </div>
-                  <div>
-                    <div className="font-bold text-sm text-[oklch(0.15_0.04_240)] whitespace-nowrap">{company.name}</div>
-                    <div className="text-xs text-[oklch(0.55_0.04_240)] whitespace-nowrap">{company.sector}</div>
+                    <img src={company.logo} alt={company.name} className="w-full h-full object-contain filter  group-hover:grayscale-0 transition-all duration-500" />
                   </div>
                 </div>
               ))}
