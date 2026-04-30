@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Globe, Heart, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, Smartphone, MapPin, Globe, Heart, Facebook, Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 
@@ -123,16 +123,28 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-6">
               {[
-                { icon: Mail, text: "contact@digimaroc.org" },
-                { icon: Phone, text: "+212 674 31 30 15" },
+                { icon: Mail, text: "contact@digimaroc.org", href: "mailto:contact@digimaroc.org" },
+                { icon: Smartphone, text: "+212 674 31 30 15", href: "tel:+212674313015" },
+                { icon: Phone, text: "+212 521 24 84 31", href: "tel:+212521248431" },
                 { icon: MapPin, text: "Casablanca, Maroc" },
-                { icon: Globe, text: "www.digimaroc.org" },
+                { icon: Globe, text: "www.digimaroc.org", href: "https://www.digimaroc.org" },
               ].map((item, i) => (
                 <li key={i} className={`flex items-center gap-4 text-sm text-white/40 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
                   <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c5a059]">
                     <item.icon size={16} />
                   </div>
-                  {item.text}
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="hover:text-white transition-colors"
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                    >
+                      {item.text}
+                    </a>
+                  ) : (
+                    item.text
+                  )}
                 </li>
               ))}
             </ul>
@@ -153,7 +165,7 @@ export default function Footer() {
                 </p>
                 <div className="pt-4 border-t border-[#c5a059]/20 w-full relative z-10">
                   <span className="text-[10px] text-[#c5a059] font-bold tracking-[0.2em] uppercase">
-                    {t("hero.royal.title")}
+                    {t("hero.quote_author")}
                   </span>
                 </div>
               </div>

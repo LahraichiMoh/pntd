@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -17,22 +17,6 @@ function GridPattern() {
       </defs>
       <rect width="100%" height="100%" fill="url(#grid-plus)" className="text-white" />
     </svg>
-  );
-}
-
-// Royal Emblem SVG (Crescent and Star)
-function RoyalEmblem() {
-  return (
-    <div className="relative w-32 h-32 flex items-center justify-center">
-      <div className="absolute inset-0 rounded-full border border-[#c5a059] opacity-40 animate-pulse" />
-      <div className="absolute inset-2 rounded-full border border-[#c5a059] opacity-60" />
-      <svg viewBox="0 0 100 100" className="w-16 h-16 fill-[#c5a059]">
-        {/* Crescent */}
-        <path d="M50 20 C33.4 20 20 33.4 20 50 C20 66.6 33.4 80 50 80 C40 80 32 72 32 50 C32 28 40 20 50 20 Z" />
-        {/* Star */}
-        <path d="M60 45 L64 54 L73 54 L66 60 L68 69 L60 63 L52 69 L54 60 L47 54 L56 54 Z" />
-      </svg>
-    </div>
   );
 }
 
@@ -150,34 +134,8 @@ export default function HeroSection() {
           <div className="absolute w-[400px] h-[550px] border border-[#c5a059]/20 translate-x-4 -translate-y-4" />
           <div className="absolute w-[400px] h-[550px] border border-[#c5a059]/10 translate-x-8 -translate-y-8" />
           
-          <div className="relative w-[400px] h-[550px] bg-[#0a2f1f] border border-[#c5a059]/30 shadow-2xl flex flex-col items-center justify-center p-12 text-center gap-8 group overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
-              <img
-                src="/pntd.png"
-                alt=""
-                aria-hidden="true"
-                className="w-full h-full object-contain scale-90"
-              />
-            </div>
-            {/* Hover Shine Effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            
-            <RoyalEmblem />
-            
-            <div className="flex flex-col gap-3">
-              <h3 className="text-[#c5a059] text-sm tracking-[0.2em] font-bold uppercase leading-relaxed">
-                {t("hero.royal.title")}
-              </h3>
-              <p className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-medium">
-                {t("hero.royal.blessing")}
-              </p>
-              <p className="text-[#c5a059]/60 text-xs tracking-[0.2em] uppercase font-bold">
-                {t("hero.royal.rank")}
-              </p>
-            </div>
-
-            {/* Decorative bottom line */}
-            <div className="absolute bottom-12 w-12 h-[1px] bg-[#c5a059]/40" />
+          <div className="relative w-[400px] h-[550px] border border-[#c5a059]/30 shadow-2xl overflow-hidden">
+            <img src="/roi.png" alt="" aria-hidden="true" className="w-full h-full object-cover" />
           </div>
         </motion.div>
       </div>

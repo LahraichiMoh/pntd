@@ -104,9 +104,9 @@ const translations: Record<Language, Record<string, string>> = {
     "join.message": "Message (optionnel)",
     "join.submit": "Soumettre ma demande",
     "join.success": "Votre demande a été soumise avec succès!",
-    "join.profile_assoc": "Association",
+    "join.profile_assoc": "Association / Coopérative",
     "join.profile_teacher": "Enseignant / Formateur",
-    "join.profile_entre": "Entrepreneur",
+    "join.profile_entre": "Entrepreneur / Entreprise / Startup",
     "join.profile_other": "Autre",
 
     // Vision 2030
@@ -217,9 +217,9 @@ const translations: Record<Language, Record<string, string>> = {
     "join.message": "رسالة (اختياري)",
     "join.submit": "إرسال الطلب",
     "join.success": "تم إرسال طلبك بنجاح!",
-    "join.profile_assoc": "جمعية",
+    "join.profile_assoc": "تعاونية / جمعية",
     "join.profile_teacher": "أستاذ / مكوّن",
-    "join.profile_entre": "رائد أعمال",
+    "join.profile_entre": "رائد أعمال / شركة / شركة ناشئة",
     "join.profile_other": "أخرى",
 
     "vision.title": "رؤية المغرب 2030",
@@ -327,9 +327,9 @@ const translations: Record<Language, Record<string, string>> = {
     "join.message": "Message (optional)",
     "join.submit": "Submit my application",
     "join.success": "Your application has been submitted successfully!",
-    "join.profile_assoc": "Association",
+    "join.profile_assoc": "Association / Cooperative",
     "join.profile_teacher": "Teacher / Trainer",
-    "join.profile_entre": "Entrepreneur",
+    "join.profile_entre": "Entrepreneur / Company / Startup",
     "join.profile_other": "Other",
 
     "vision.title": "Morocco Vision 2030",
