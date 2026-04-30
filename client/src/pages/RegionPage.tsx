@@ -110,6 +110,21 @@ const MOCK_REGIONS: Record<string, RegionData> = {
       { id: 2, name: "Mme. Samira El Fassi", role: "Directrice Régionale", email: "s.elfassi@pntd.ma", phone: "+212 537 789 012" }
     ]
   },
+  "beni-mellal-khenifra": {
+    region: {
+      nameFr: "Béni Mellal-Khénifra",
+      nameAr: "بني ملال-خنيفرة",
+      slug: "beni-mellal-khenifra",
+      capital: "Béni Mellal",
+      descriptionFr: "Une région au fort potentiel agricole et hydrique, au cœur des dynamiques de développement territorial.",
+      descriptionAr: "جهة ذات إمكانات فلاحية ومائية كبيرة، في قلب دينامية التنمية الترابية.",
+      visionFr: "Renforcer l'AgriTech, la digitalisation des coopératives et la modernisation des services publics de proximité.",
+      visionAr: "تعزيز التكنولوجيا الفلاحية، ورقمنة التعاونيات، وتحديث خدمات القرب العمومية."
+    },
+    representatives: [
+      { id: 6, name: "M. Mohamed Alaoui", role: "Représentant Régional", email: "m.alaoui@pntd.ma", phone: "+212 523 123 456" }
+    ]
+  },
   "casablanca-settat": {
     region: { 
       nameFr: "Casablanca-Settat", 
@@ -367,7 +382,7 @@ export default function RegionPage() {
               </div>
             ) : (
               <div className="grid lg:grid-cols-2 gap-8">
-                {representatives.map((rep, i) => (
+                {representatives.map((rep) => (
                   <div
                     key={rep.id}
                     className="bg-card rounded-[2rem] p-8 border border-border group relative overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/5 flex flex-col sm:flex-row gap-8 items-center sm:items-start"
@@ -464,4 +479,3 @@ export default function RegionPage() {
     </div>
   );
 }
-
