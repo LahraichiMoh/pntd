@@ -43,6 +43,7 @@ export default function JoinSection() {
     sector: "",
     profileType: "",
     message: "",
+    consentPublish: false,
   });
 
   useEffect(() => {
@@ -293,6 +294,20 @@ export default function JoinSection() {
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                 />
               </div>
+
+              <label className="flex items-start gap-3 text-sm text-[oklch(0.45_0.04_240)] select-none">
+                <input
+                  type="checkbox"
+                  checked={form.consentPublish}
+                  onChange={(e) => setForm({ ...form, consentPublish: e.target.checked })}
+                  className="mt-1 h-4 w-4 rounded border"
+                  style={{ borderColor: "oklch(0.88 0.02 240)", accentColor: "oklch(0.35 0.14 152)" }}
+                />
+                <span className="leading-relaxed">
+                  <span className="font-semibold text-[oklch(0.30_0.04_240)]">{t("join.consent_publish")}</span>
+                  <span className="block text-xs text-[oklch(0.55_0.03_240)] mt-1">{t("join.consent_publish_desc")}</span>
+                </span>
+              </label>
 
               {/* Submit */}
               <button
