@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 
 const LOGO_URL = "/pntd.png";
@@ -50,14 +50,27 @@ function FlagSvg({ code }: { code: Language }) {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [location, navigate] = useLocation();
   const { t, lang, setLang } = useLanguage();
+  const langMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (!langMenuRef.current) return;
+      if (!langMenuRef.current.contains(e.target as Node)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const navLinks = [
@@ -72,6 +85,7 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
+    setIsLangOpen(false);
     
     if (href === "/") {
       navigate("/");
@@ -160,7 +174,7 @@ export default function Navbar() {
           {/* Language Switcher + Mobile menu */}
           <div className="flex items-center gap-2">
             {/* Language switcher */}
-            <div className="flex items-center gap-0.5 rounded-xl border p-0.5" style={{ borderColor: "oklch(0.88 0.02 240)" }}>
+            <div className="hidden lg:flex items-center gap-0.5 rounded-xl border p-0.5" style={{ borderColor: "oklch(0.88 0.02 240)" }}>
               {LANGUAGES.map((l) => (
                 <button
                   key={l.code}
@@ -172,12 +186,48 @@ export default function Navbar() {
                       : { color: "oklch(0.45 0.04 240)" }
                   }
                 >
-                    <span className="inline-flex items-center gap-1.5">
-                      <FlagSvg code={l.code} />
-                      {l.label}
-                    </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <FlagSvg code={l.code} />
+                    {l.label}
+                  </span>
                 </button>
               ))}
+            </div>
+
+            <div className="relative lg:hidden" ref={langMenuRef}>
+              <button
+                type="button"
+                onClick={() => setIsLangOpen((v) => !v)}
+                className="flex items-center gap-2 px-3 py-2 rounded-xl border bg-white/90 backdrop-blur-md text-xs font-bold"
+                style={{ borderColor: "oklch(0.88 0.02 240)", color: "oklch(0.30 0.04 240)" }}
+              >
+                <FlagSvg code={lang} />
+                {lang.toUpperCase()}
+                <ChevronDown size={16} className={`transition-transform ${isLangOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              <div
+                className={`absolute right-0 mt-2 w-44 rounded-2xl border bg-white shadow-xl overflow-hidden transition-all duration-200 ${
+                  isLangOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 pointer-events-none"
+                }`}
+                style={{ borderColor: "oklch(0.88 0.02 240)" }}
+              >
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.code}
+                    type="button"
+                    onClick={() => {
+                      setLang(l.code);
+                      setIsLangOpen(false);
+                    }}
+                    className="w-full flex items-center gap-2 px-4 py-3 text-sm font-semibold hover:bg-[oklch(0.35_0.14_152/0.08)] transition-colors"
+                    style={{ color: "oklch(0.30 0.04 240)" }}
+                  >
+                    <FlagSvg code={l.code} />
+                    {l.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Mobile menu button */}
