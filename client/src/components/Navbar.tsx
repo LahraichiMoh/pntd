@@ -5,11 +5,48 @@ import { useLanguage, Language } from "@/contexts/LanguageContext";
 
 const LOGO_URL = "/pntd.png";
 
-const LANGUAGES: { code: Language; label: string; flag: string }[] = [
-  { code: "fr", label: "FR", flag: "🇫🇷" },
-  { code: "ar", label: "AR", flag: "🇲🇦" },
-  { code: "en", label: "EN", flag: "🇬🇧" },
+const LANGUAGES: { code: Language; label: string }[] = [
+  { code: "fr", label: "FR" },
+  { code: "ar", label: "AR" },
+  { code: "en", label: "EN" },
 ];
+
+function FlagSvg({ code }: { code: Language }) {
+  if (code === "fr") {
+    return (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 rounded-sm overflow-hidden" aria-hidden="true">
+        <rect x="0" y="0" width="8" height="24" fill="#1f4aa8" />
+        <rect x="8" y="0" width="8" height="24" fill="#ffffff" />
+        <rect x="16" y="0" width="8" height="24" fill="#d31f2a" />
+      </svg>
+    );
+  }
+
+  if (code === "ar") {
+    return (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 rounded-sm overflow-hidden" aria-hidden="true">
+        <rect x="0" y="0" width="24" height="24" fill="#c1272d" />
+        <path
+          d="M12 5.5l1.6 4.7h4.9l-4 2.9 1.6 4.7-4.1-2.9-4.1 2.9 1.6-4.7-4-2.9h4.9L12 5.5z"
+          fill="none"
+          stroke="#006233"
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" className="w-4 h-4 rounded-sm overflow-hidden" aria-hidden="true">
+      <rect x="0" y="0" width="24" height="24" fill="#012169" />
+      <path d="M0 0l24 24M24 0L0 24" stroke="#ffffff" strokeWidth="4" />
+      <path d="M0 0l24 24M24 0L0 24" stroke="#c8102e" strokeWidth="2.2" />
+      <path d="M12 0v24M0 12h24" stroke="#ffffff" strokeWidth="6" />
+      <path d="M12 0v24M0 12h24" stroke="#c8102e" strokeWidth="3.2" />
+    </svg>
+  );
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -135,7 +172,10 @@ export default function Navbar() {
                       : { color: "oklch(0.45 0.04 240)" }
                   }
                 >
-                  {l.flag} {l.label}
+                    <span className="inline-flex items-center gap-1.5">
+                      <FlagSvg code={l.code} />
+                      {l.label}
+                    </span>
                 </button>
               ))}
             </div>

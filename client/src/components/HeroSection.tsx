@@ -79,9 +79,9 @@ export default function HeroSection() {
 
           {/* Subtitle */}
           <div className={`flex flex-col gap-2 ${dir === 'rtl' ? 'items-end' : 'items-start'}`}>
-            <span className="text-[#c5a059] text-xs tracking-[0.3em] font-medium uppercase opacity-80">
+            {/* <span className="text-[#c5a059] text-xs tracking-[0.3em] font-medium uppercase opacity-80">
               {t("hero.subtitle")}
-            </span>
+            </span> */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif italic leading-tight">
               <span className="text-[#c5a059] block">{t("hero.title_part1")}</span>
               <span className="text-white block not-italic font-sans font-bold mt-2">{t("hero.title_part2")}</span>
@@ -132,7 +132,7 @@ export default function HeroSection() {
             {[
               { value: "12", label: t("hero.stat.regions") },
               { value: "75+", label: t("hero.stat.villes") },
-              { value: "8", label: t("hero.stat.sectors") },
+              { value: "8+", label: t("hero.stat.sectors") },
             ].map((stat, i) => (
               <motion.div 
                 key={i}
@@ -142,7 +142,7 @@ export default function HeroSection() {
                 className={`flex flex-col gap-1 ${dir === 'rtl' ? 'items-end' : 'items-start'}`}
               >
                 <span className="text-3xl font-serif text-[#c5a059]">{stat.value}</span>
-                <span className="text-[10px] tracking-[0.2em] text-white/40 uppercase font-bold">{stat.label}</span>
+                <span className="text-[12px] tracking-[0.2em] text-white/80 uppercase font-bold">{stat.label}</span>
               </motion.div>
             ))}
           </div>

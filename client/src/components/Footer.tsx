@@ -159,7 +159,7 @@ export default function Footer() {
               <div className="absolute top-0 right-0 w-24 h-24 bg-[#c5a059]/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-[#c5a059]/10 transition-colors" />
               
               <div className="flex flex-col items-center gap-6 text-center">
-                <RoyalEmblem />
+                {/* <RoyalEmblem /> */}
                 <p className="text-sm text-white/80 leading-relaxed relative z-10 italic font-serif">
                   {t("hero.quote")}
                 </p>
