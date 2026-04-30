@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useLocation } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Grid pattern with plus signs
@@ -23,6 +24,7 @@ function GridPattern() {
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { t, dir } = useLanguage();
+  const [location, navigate] = useLocation();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -31,6 +33,21 @@ export default function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleDiscover = () => {
+    const targetId = "about";
+    if (location !== "/") {
+      navigate("/");
+      setTimeout(() => scrollTo(targetId), 200);
+      return;
+    }
+    scrollTo(targetId);
+  };
 
   return (
     <section
@@ -92,11 +109,19 @@ export default function HeroSection() {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-6 mt-4">
-            <button className="btn-moroccan-gradient px-8 py-4 font-bold text-xs tracking-widest uppercase flex items-center gap-3">
+            <button
+              type="button"
+              onClick={handleDiscover}
+              className="btn-moroccan-gradient group px-8 py-4 font-bold text-xs tracking-widest uppercase flex items-center gap-3"
+            >
               {t("hero.cta_discover")}
               <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${dir === 'rtl' ? 'rotate-180' : ''}`} />
             </button>
-            <button className="group px-8 py-4 border border-white/20 hover:border-[#c5a059] hover:text-[#c5a059] font-bold text-xs tracking-widest uppercase transition-all flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => navigate("/join")}
+              className="group px-8 py-4 border border-white/20 hover:border-[#c5a059] hover:text-[#c5a059] font-bold text-xs tracking-widest uppercase transition-all flex items-center gap-3"
+            >
               {t("hero.cta_join")}
               <ArrowRight className={`w-4 h-4 transition-transform group-hover:translate-x-1 ${dir === 'rtl' ? 'rotate-180' : ''}`} />
             </button>
@@ -128,13 +153,13 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative hidden lg:flex justify-center items-center"
+          className="relative flex justify-center items-center"
         >
           {/* Card Backgrounds (Stacked effect) */}
-          <div className="absolute w-[400px] h-[550px] border border-[#c5a059]/20 translate-x-4 -translate-y-4" />
-          <div className="absolute w-[400px] h-[550px] border border-[#c5a059]/10 translate-x-8 -translate-y-8" />
+          <div className="absolute w-[320px] h-[440px] sm:w-[360px] sm:h-[500px] lg:w-[400px] lg:h-[550px] border border-[#c5a059]/20 translate-x-4 -translate-y-4" />
+          <div className="absolute w-[320px] h-[440px] sm:w-[360px] sm:h-[500px] lg:w-[400px] lg:h-[550px] border border-[#c5a059]/10 translate-x-8 -translate-y-8" />
           
-          <div className="relative w-[400px] h-[550px] border border-[#c5a059]/30 shadow-2xl overflow-hidden">
+          <div className="relative w-[320px] h-[440px] sm:w-[360px] sm:h-[500px] lg:w-[400px] lg:h-[550px] border border-[#c5a059]/30 shadow-2xl overflow-hidden">
             <img src="/roi.png" alt="" aria-hidden="true" className="w-full h-full object-cover" />
           </div>
         </motion.div>
