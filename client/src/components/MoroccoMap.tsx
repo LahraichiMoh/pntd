@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { MapPin, ChevronRight, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const MOROCCO_MAP_URL = "/manus-storage/morocco-map_14845110.jpg";
+const MOROCCO_MAP_URL = "/map.svg";
 
 const regions = [
   { id: 1, slug: "tanger-tetouan-al-hoceima", nameFr: "Tanger-Tétouan-Al Hoceïma", nameAr: "طنجة-تطوان-الحسيمة", capital: "Tanger" },

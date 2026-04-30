@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin, Globe, Heart, Facebook, Twitter, Instagram, Linked
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion";
 
-const LOGO_URL = "/pntd.png";
+const LOGO_URL = "/logo-w.png";
 
 // Grid pattern with plus signs (same as Hero)
 function GridPattern() {
@@ -43,10 +43,10 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: "#" },
-    { icon: Twitter, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Linkedin, href: "#" },
+    { icon: Facebook, href: "https://www.facebook.com/pntd.maroc" },
+    // { icon: Twitter, href: "#" },
+    { icon: Instagram, href: "https://www.instagram.com/pntd2026/" },
+    // { icon: Linkedin, href: "#" },
   ];
 
   return (
@@ -66,7 +66,7 @@ export default function Footer() {
                 <img 
                   src={LOGO_URL} 
                   alt="PNTD" 
-                  className="relative w-30 h-30  object-contain p-1" 
+                  className="relative w-40 h-20  object-contain p-1" 
                 />
               </div>
               
@@ -82,6 +82,7 @@ export default function Footer() {
                   key={i} 
                   href={social.href}
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-[#c5a059] hover:border-[#c5a059]/40 transition-all hover:-translate-y-1"
+                  target="_blank"
                 >
                   <social.icon size={18} />
                 </a>
@@ -122,10 +123,10 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-6">
               {[
-                { icon: Mail, text: "contact@pntd.ma" },
-                { icon: Phone, text: "+212 5XX XXX XXX" },
-                { icon: MapPin, text: "Rabat, Maroc" },
-                { icon: Globe, text: "www.pntd.ma" },
+                { icon: Mail, text: "contact@digimaroc.org" },
+                { icon: Phone, text: "+212 674 31 30 15" },
+                { icon: MapPin, text: "Casablanca, Maroc" },
+                { icon: Globe, text: "www.digimaroc.org" },
               ].map((item, i) => (
                 <li key={i} className={`flex items-center gap-4 text-sm text-white/40 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
                   <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#c5a059]">

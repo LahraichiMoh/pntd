@@ -9,11 +9,11 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <div className="pt-20">
+      <main className="pt-20">
         <ServicesSection />
-      </div>
+      </main>
       <Footer />
     </div>
   );
