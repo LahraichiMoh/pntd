@@ -19,6 +19,7 @@ const partnerCompanies = [
   { name: "Inwi", sector: "Télécom & Digital", logo: "/partners/7.jpeg", color: "#1a5c38" },
   { name: "Bank of Africa", sector: "Services Financiers", logo: "/partners/bsc.png", color: "#c41e3a" },
   { name: "Managem", sector: "Mines & Industrie", logo: "/partners/9.jpeg", color: "#b8860b" },
+  { name: "Value", sector: "Mines & Industrie", logo: "/partners/value.png", color: "#b8860b" },
 ];
 
 // Duplicate for seamless loop
