@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
-import { Send, User, Mail, Phone, MapPin, Briefcase, Users, CheckCircle2, Loader2 } from "lucide-react";
+import { Send, User, Mail, Phone, MapPin, Briefcase, Users, CheckCircle2, Loader2, Building2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const REGIONS_LIST = [
@@ -79,8 +79,9 @@ export default function JoinSection() {
 
   const profileTypes = [
     { value: "association", label: t("join.profile_assoc"), icon: Users },
-    { value: "teacher", label: t("join.profile_teacher"), icon: Briefcase },
+    { value: "institution", label: t("join.profile_institution"), icon: Building2 },
     { value: "entrepreneur", label: t("join.profile_entre"), icon: Briefcase },
+    { value: "teacher", label: t("join.profile_teacher"), icon: Briefcase },
     { value: "other", label: t("join.profile_other"), icon: User },
   ];
 
@@ -174,7 +175,7 @@ export default function JoinSection() {
               {/* Profile type selector */}
               <div>
                 <label className={labelClass}>{t("join.profile")} *</label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                   {profileTypes.map((type) => {
                     const Icon = type.icon;
                     return (
